@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sybernake</title>
+    <link rel="stylesheet" href="css/emoji-select.css">
+    <link rel="stylesheet" href="css/endgame.css">
+    <link rel="stylesheet" href="css/scale.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+
+<div class="scanlines"></div>
+<div class="container">
+
+    <div class="neon-title">
+        <div class="neon-title-text">Sybernake</div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="settings">游戏介绍</div>
+        <div class="tab" data-tab="characters">角色介绍</div>
+        <div class="tab" data-tab="leaderboard">排行榜</div>
+        <div class="tab" data-tab="game">开始游戏</div>
+    </div>
+
+    <!-- 游戏设置面板 -->
+    <div id="settings" class="tab-content active">
+        <div class="settings-panel">
+            <h2 class="settings-title">游戏内容</h2>
+            <div class="difficulty-options">
+                <div class="difficulty-option selected" data-difficulty="easy">
+                    <div class="difficulty-emoji">🐍🐉</div>
+
+                    <div class="difficulty-name">操作介绍</div>
+                    <div class="difficulty-desc">通过⌨️控制蛇头移动
+                        <br>👆前进
+                        <br>👈左转
+                        <br>👉右转
+                    </div>
+                    <br>
+                    <div class="difficulty-desc">通过🎮控制蛇头移动
+                        <br>LT前进
+                        <br>L转向
+                    </div>
+                    <br>
+
+                    <div class="difficulty-name">游戏设定</div>
+                    <div class="difficulty-desc">击杀敌人 点亮结点</div>
+                    <div class="difficulty-desc">点亮所有 抽取结点</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 角色选择面板 -->
+    <div id="characters" class="tab-content">
+        <h2 class="settings-title">作战单位</h2>
+        <div class="characters-grid">
+            <div class="character-card selected" data-character="common">
+                <div class="character-emoji">😀😀</div>
+                <div class="character-name">哈哈</div>
+                <div class="character-stats">
+                    <div><span class="stat-icon">🔥</span> 动帧格的</div>
+                    <div><span class="stat-icon">😶‍🌫️😶‍🌫️</span> 亡语清屏</div>
+                    <div><span class="stat-icon">⚔⚔️</span> 平衡型单位</div>
+                </div>
+            </div>
+
+            <div class="character-card" data-character="robot">
+                <div class="character-emoji">🤖🤖</div>
+                <div class="character-name">Bot</div>
+                <div class="character-stats">
+                    <div><span class="stat-icon">⚡</span> 十万伏特</div>
+                    <div><span class="stat-icon">👀👀</span> 超远射程</div>
+                    <div><span class="stat-icon">🏹🏹</span> 狙击型单位</div>
+                </div>
+            </div>
+
+            <div class="character-card" data-character="seak">
+                <div class="character-emoji">🤢🤢</div>
+                <div class="character-name">纳垢神选</div>
+                <div class="character-stats">
+                    <div><span class="stat-icon">🦠🦠🦠</span> 诶呦疫情</div>
+                    <div><span class="stat-icon">🗡🗡️</span> 近战攻击</div>
+                    <div><span class="stat-icon">🧪🔪</span> 近战型单位</div>
+                </div>
+            </div>
+
+            <div class="character-card" data-character="bomb">
+                <div class="character-emoji">🤯🤯</div>
+                <div class="character-name">不要说俄语</div>
+                <div class="character-stats">
+                    <div><span class="stat-icon">💣</span> 恐怖袭击</div>
+                    <div><span class="stat-icon">💥💥</span> 范围爆炸</div>
+                    <div><span class="stat-icon">🎇🧨</span> 爆破型单位</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 排行榜面板 -->
+    <div id="leaderboard" class="tab-content">
+        <div class="leaderboard">
+            <h2 class="leaderboard-title">排行榜</h2>
+
+            <div class="leaderboard-item">
+                <div class="rank">1</div>
+                <div class="player-info">
+                    <div class="player-name" id="p1">虚位以待</div>
+                    <div class="player-details">
+                        <span id="d1">2025-6-1</span>
+                    </div>
+                </div>
+                <div class="player-score" id="k1">0</div>
+            </div>
+
+            <div class="leaderboard-item">
+                <div class="rank">2</div>
+                <div class="player-info">
+                    <div class="player-name" id="p2">虚位以待</div>
+                    <div class="player-details">
+                        <span id="d2">2025-6-1</span>
+                    </div>
+                </div>
+                <div class="player-score" id="k2">0</div>
+            </div>
+
+            <div class="leaderboard-item">
+                <div class="rank">3</div>
+                <div class="player-info">
+                    <div class="player-name" id="p3">虚位以待</div>
+                    <div class="player-details">
+                        <span id="d3">2025-6-1</span>
+                    </div>
+                </div>
+                <div class="player-score" id="k3">0</div>
+            </div>
+
+            <div class="leaderboard-item">
+                <div class="rank">4</div>
+                <div class="player-info">
+                    <div class="player-name" id="p4">虚位以待</div>
+                    <div class="player-details">
+                        <span id="d4">2025-6-1</span>
+                    </div>
+                </div>
+                <div class="player-score" id="k4">0</div>
+            </div>
+
+            <div class="leaderboard-item">
+                <div class="rank">5</div>
+                <div class="player-info">
+                    <div class="player-name" id="p5">虚位以待</div>
+                    <div class="player-details">
+                        <span id="d5">2025-6-1</span>
+                    </div>
+                </div>
+                <div class="player-score" id="k5">0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 游戏面板 -->
+    <div id="game" class="tab-content" style="position: relative;">
+        <canvas id="canvas" width="600" height="500"></canvas>
+        <div id="pauseOverlay" class="pause-overlay">
+            <div class="pause-text">游戏暂停</div>
+        </div>
+        <div id="scoreDisplay" class="score-display">得分: <span id="scoreValue">0</span></div>
+    </div>
+
+    <!-- 按钮区域 -->
+    <div class="action-buttons">
+        <button class="btn btn-primary" id="startGame" style="display: none;">启动游戏</button>
+        <button class="btn btn-secondary" id="pauseGame" style="display: none;">暂停游戏</button>
+    </div>
+</div>
+
+
+<!-- Emoji选择模态框 -->
+<div id="emojiModal" class="modal-emoji">
+    <div class="modal-content-emoji">
+        <div class="modal-header-emoji">
+            <h2 class="emoji-selection-text">选择你的英雄🫶</h2>
+        </div>
+        <div class="modal-body-emoji">
+            <div class="emoji-options">
+                <!-- 默认表情 -->
+                <div id="op1" class="emoji-option" data-emoji="😊">😊</div>
+                <div id="op2" class="emoji-option" data-emoji="😂">😂</div>
+                <div id="op3" class="emoji-option" data-emoji="😍">😍</div>
+            </div>
+            <div class="modal-buttons-emoji">
+                <button class="modal-btn submit-btn emoji" id="submitEmoji">确定选择</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  结束游戏展示框  -->
+<div id="gameEndModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>游戏结束</h2>
+        <p>你的最终得分: <span id="finalScore">0</span></p>
+
+        <p>
+            <input type="text" class="name-input" id="playerName" placeholder="输入你的名字" maxlength="15">
+        </p>
+
+        <div class="modal-buttons">
+            <button id="restartButton">结束</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="module">
+    import {startGame, togglePause} from "./index.js";
+    import {refreshRank} from './game/setRank.js'
+
+    refreshRank();
+
+    // 游戏状态管理
+    const gameState = {
+        difficulty: 'normal',
+        character: 'common',
+        gameActive: false,
+        currentGame: null,
+        isPaused: false
+    };
+
+    // DOM元素引用
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const difficultyOptions = document.querySelectorAll('.difficulty-option');
+    const characterCards = document.querySelectorAll('.character-card');
+    const gameCanvas = document.getElementById('canvas');
+    const scoreValue = document.getElementById('scoreValue');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const startGameButton = document.getElementById('startGame');
+    const pauseGameButton = document.getElementById('pauseGame');
+    const pauseOverlay = document.getElementById('pauseOverlay');
+
+    // 初始化应用
+    function initApp() {
+        initEventListeners();
+        initGameCanvas();
+        updateButtonVisibility('settings'); // 初始化按钮显示状态
+    }
+
+    // 初始化游戏画布
+    function initGameCanvas() {
+        if (gameCanvas.getContext) {
+            const ctx = gameCanvas.getContext('2d');
+            // 绘制简单的背景
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+            // 绘制网格
+            ctx.strokeStyle = 'rgba(0, 150, 255, 0.1)';
+            ctx.lineWidth = 1;
+
+            // 垂直线
+            for (let x = 0; x < gameCanvas.width; x += 20) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, gameCanvas.height);
+                ctx.stroke();
+            }
+
+            // 水平线
+            for (let y = 0; y < gameCanvas.height; y += 20) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(gameCanvas.width, y);
+                ctx.stroke();
+            }
+
+            // 绘制游戏标题
+            ctx.fillStyle = '#00e5ff';
+            ctx.font = 'bold 32px "Arial", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Sybernake', gameCanvas.width/2, gameCanvas.height/2 - 25);
+
+            ctx.fillStyle = '#b0f0ff';
+            ctx.font = '16px "Arial", sans-serif';
+            ctx.fillText('准备进入霓虹战场', gameCanvas.width/2, gameCanvas.height/2 + 15);
+        }
+    }
+
+    // 初始化事件监听器
+    function initEventListeners() {
+        // 标签切换功能
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有标签的active类
+                tabs.forEach(t => t.classList.remove('active'));
+                // 添加当前标签的active类
+                tab.classList.add('active');
+
+                // 隐藏所有内容面板
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // 显示当前内容面板
+                const tabId = tab.dataset.tab;
+                document.getElementById(tabId).classList.add('active');
+
+                // 如果是游戏标签，显示画布
+                if (tabId === 'game') {
+                    gameCanvas.style.display = 'block';
+                    startGameButton.style.display = 'block'; // 显示启动游戏按钮
+                    pauseGameButton.style.display = 'block'; // 显示暂停游戏按钮
+                } else {
+                    gameCanvas.style.display = 'none';
+                    startGameButton.style.display = 'none'; // 隐藏启动游戏按钮
+                    pauseGameButton.style.display = 'none'; // 隐藏暂停游戏按钮
+                }
+            });
+        });
+
+        // 难度选择功能
+        difficultyOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // 移除所有选项的selected类
+                difficultyOptions.forEach(opt => opt.classList.remove('selected'));
+                // 添加当前选项的selected类
+                option.classList.add('selected');
+
+                // 保存当前选择的难度
+                gameState.difficulty = option.dataset.difficulty;
+
+                // 添加视觉反馈
+                option.style.animation = 'neon-pulse 0.5s';
+                setTimeout(() => {
+                    option.style.animation = '';
+                }, 500);
+            });
+        });
+
+        // 角色选择功能
+        characterCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // 移除所有角色的selected类
+                characterCards.forEach(c => c.classList.remove('selected'));
+                // 添加当前角色的selected类
+                card.classList.add('selected');
+
+                // 保存当前选择的角色
+                gameState.character = card.dataset.character;
+
+                // 添加视觉反馈
+                card.style.animation = 'neon-pulse 0.5s';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 500);
+            });
+        });
+
+        // 开始游戏按钮
+        document.getElementById('startGame').addEventListener('click', () => {
+            if (gameState.currentGame) {
+                startGame();
+                // gameState.currentGame.restart();
+                // gameState.currentGame = null;
+            }
+
+            gameState.gameActive = true;
+            gameState.isPaused = false;
+            // 切换到游戏标签
+            const gameTab = document.querySelector('.tab[data-tab="game"]');
+            gameTab.click();
+
+            // 重置得分显示
+            gameState.score = 0;
+            scoreValue.textContent = gameState.score;
+            scoreDisplay.style.display = 'block';
+
+            // 视觉反馈
+            document.getElementById('startGame').style.animation = 'neon-pulse 0.5s';
+            setTimeout(() => {
+                document.getElementById('startGame').style.animation = '';
+            }, 500);
+
+            // 启动游戏
+            startGame();
+
+            // 确保所有按钮处于可用状态
+            pauseGameButton.classList.remove('btn-disabled');
+            pauseGameButton.disabled = false;
+        });
+
+        // 暂停游戏按钮
+        document.getElementById('pauseGame').addEventListener('click', () => {
+            const isPausedNow = togglePause();
+            gameState.isPaused = isPausedNow;
+
+            // 更新按钮文本
+            if (isPausedNow) {
+                pauseGameButton.textContent = '继续游戏';
+                pauseOverlay.style.display = 'flex'; // 显示暂停覆盖层
+
+                // 禁用其他按钮
+                startGameButton.classList.add('btn-disabled');
+                startGameButton.disabled = true;
+            } else {
+                pauseGameButton.textContent = '暂停游戏';
+                pauseOverlay.style.display = 'none'; // 隐藏暂停覆盖层
+
+                // 启用其他按钮
+                startGameButton.classList.remove('btn-disabled');
+                startGameButton.disabled = false;
+            }
+
+            // 视觉反馈
+            pauseGameButton.style.animation = 'neon-pulse 0.5s';
+            setTimeout(() => {
+                pauseGameButton.style.animation = '';
+            }, 500);
+        });
+
+    }
+
+    // 更新按钮可见性
+    function updateButtonVisibility(tabId) {
+        if (tabId === 'game') {
+            startGameButton.style.display = 'block';
+            pauseGameButton.style.display = 'block';
+        } else {
+            startGameButton.style.display = 'none';
+            pauseGameButton.style.display = 'none';
+        }
+    }
+
+    // 启动应用
+    document.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+</html>

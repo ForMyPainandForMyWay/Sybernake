@@ -1,0 +1,65 @@
+/* 基础样式 */
+body {
+    background: linear-gradient(135deg, #2dafa0, #442a6e, #4b87f6); /* 深色渐变背景 */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 霓虹灯效果容器 */
+.canvas-container {
+    position: relative;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(10, 10, 25, 0.5);
+    box-shadow:
+            0 0 15px rgba(0, 255, 255, 0.5),
+            0 0 30px rgba(0, 100, 255, 0.3);
+}
+
+/* Canvas霓虹灯效果 */
+#canvas {
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    position: relative;
+    background-color: #0a0a1a;
+    box-shadow:
+            inset 0 0 20px rgba(0, 255, 255, 0.3),
+            inset 0 0 30px rgba(0, 100, 255, 0.2);
+
+    /* 霓虹灯散射效果 */
+    animation: neon-glow 3s infinite alternate;
+}
+
+/* 霓虹灯动画 */
+@keyframes neon-glow {
+    0% {
+        box-shadow:
+                0 0 500px rgba(0, 255, 255, 0.5),
+                0 0 2000px rgba(0, 100, 255, 0.3),
+                inset 0 0 45px rgba(0, 255, 255, 0.3),
+                inset 0 0 50px rgba(0, 100, 255, 0.2);
+    }
+    100% {
+        box-shadow:
+                0 0 500px rgba(0, 255, 255, 0.8),
+                0 0 2000px rgba(0, 100, 255, 0.5),
+                inset 0 0 45px rgba(0, 255, 255, 0.5),
+                inset 0 0 50px rgba(0, 100, 255, 0.3);
+    }
+}
+
+@keyframes title-glow {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(0, 255, 255, 1),
+        0 0 30px rgba(0, 150, 255, 0.8);
+    }
+}
+

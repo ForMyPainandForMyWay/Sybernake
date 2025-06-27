@@ -1,0 +1,353 @@
+:root {
+    --modal-bg: rgba(0, 0, 0, 0.85);
+    --modal-content-bg: rgba(10, 10, 25, 0.5);
+    --btn-primary: #00aeff;
+    --btn-hover: #0066ff;
+    --selection-highlight: rgba(0, 174, 255, 0.25);
+    --border-active: #00f7ff;
+    --shadow: 0 0 20px rgba(0, 174, 255, 0.7);
+
+    /* 添加故障艺术切片变量 */
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+}
+
+.demo-btn {
+    position: relative;
+    width: 300px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 28px;
+    background: var(--btn-primary);
+    color: #fff;
+    letter-spacing: 3px;
+    outline: transparent;
+    margin: 20px auto;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid var(--border-active);
+    box-shadow:
+            0 0 15px rgba(77, 171, 247, 0.5),
+            inset 0 0 20px rgba(0, 174, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+    background: var(--btn-hover);
+    box-shadow:
+            0 0 25px rgba(77, 171, 247, 0.8),
+            inset 0 0 25px rgba(0, 174, 255, 0.8);
+}
+
+.demo-btn::after {
+    content: "打开表情选择器";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-primary);
+    box-shadow: 6px 0 0 var(--border-active);
+    text-shadow: -2px -2px 0px rgba(114, 164, 245, 0.7), 2px 2px 0px var(--border-active);
+    clip-path: var(--slice-0);
+}
+
+.demo-btn:hover::after {
+    animation: glitch 0.8s;
+    animation-timing-function: steps(2, end);
+}
+
+/* 故障艺术动画关键帧 */
+@keyframes glitch {
+    0% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, -5px);
+    }
+
+    10% {
+        clip-path: var(--slice-3);
+        transform: translate(5px, 5px);
+    }
+
+    20% {
+        clip-path: var(--slice-1);
+        transform: translate(-5px, 5px);
+    }
+
+    30% {
+        clip-path: var(--slice-3);
+        transform: translate(0px, 2.5px);
+    }
+
+    40% {
+        clip-path: var(--slice-2);
+        transform: translate(-2.5px, 0px);
+    }
+
+    50% {
+        clip-path: var(--slice-3);
+        transform: translate(2.5px, 0px);
+    }
+
+    60% {
+        clip-path: var(--slice-4);
+        transform: translate(2.5px, 5px);
+    }
+
+    70% {
+        clip-path: var(--slice-2);
+        transform: translate(-5px, 5px);
+    }
+
+    80% {
+        clip-path: var(--slice-5);
+        transform: translate(10px, -5px);
+    }
+
+    90% {
+        clip-path: var(--slice-1);
+        transform: translate(-5px, 0px);
+    }
+
+    100% {
+        clip-path: var(--slice-1);
+        transform: translate(0);
+    }
+}
+
+.modal-emoji {
+    position: fixed;
+    inset: 0;
+    background: var(--modal-bg);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-emoji[style*="display: flex"] {
+    display: flex !important;
+}
+
+.modal-content-emoji {
+    background: var(--modal-content-bg);
+    border-radius: 20px;
+    width: min(90%, 400px);
+    padding: 25px;
+    position: relative;
+    border: 1px solid rgba(0, 230, 246, 0.3);
+    box-shadow:
+            0 0 20px rgba(0, 174, 255, 0.7),
+            0 0 15px rgba(0, 230, 246, 0.3),
+            6px 6px 0 var(--border-active);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: modalAppear 0.5s forwards;
+}
+
+@keyframes modalAppear {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 标题故障效果完整修复 */
+.modal-header-emoji {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.modal-header-emoji h2 {
+    color: transparent; /* 隐藏原始文本 */
+    font-weight: 600;
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    height: 1.2em; /* 确保高度正确 */
+}
+
+/* 创建伪元素替代显示文本 */
+.modal-header-emoji h2::before {
+    content: "选择你的英雄🫶"; /* 包含表情符号 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    visibility: visible;
+    z-index: 1;
+}
+
+/* 创建两个故障层 */
+.modal-header-emoji h2::after,
+.modal-header-emoji h2 .glitch-layer {
+    content: "选择你的英雄🫶"; /* 包含表情符号 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    clip-path: var(--slice-0);
+}
+
+/* 第一层故障效果 */
+.modal-header-emoji h2::after {
+    text-shadow: -2px -2px 0 rgba(0, 230, 246, 0.7);
+    z-index: 2;
+}
+
+/* 第二层故障效果 */
+.modal-header-emoji h2 .glitch-layer {
+    content: "选择你的英雄🫶";
+    position: absolute;
+    text-shadow: 2px 2px 0 var(--btn-hover);
+    z-index: 3;
+}
+
+/* 悬停时应用故障动画 */
+.modal-header-emoji:hover h2::after {
+    animation: glitch 1.5s infinite;
+}
+
+.modal-header-emoji:hover h2 .glitch-layer {
+    animation: glitch 2s infinite reverse;
+}
+
+.emoji-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.emoji-option {
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    padding: 15px;
+    background: rgba(245, 245, 245, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.emoji-option:hover {
+    background: rgba(233, 236, 239, 0.15);
+    transform: translateY(-3px);
+    box-shadow:
+            0 5px 15px rgba(0, 0, 0, 0.1),
+            inset 0 0 15px rgba(0, 247, 255, 0.3);
+    border-color: #00f7ff;
+}
+
+.emoji-option:active {
+    transform: scale(0.95);
+}
+
+.emoji-option.selected {
+    background: var(--selection-highlight);
+    border-color: var(--border-active);
+    transform: scale(1.1);
+    box-shadow:
+            0 0 15px rgba(77, 171, 247, 0.5),
+            inset 0 0 20px rgba(0, 174, 255, 0.5);
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
+}
+
+/* 按钮故障艺术效果 */
+.modal-buttons-emoji {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    transition: background 0.3s;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 120px;
+    text-transform: uppercase;
+    border: 2px solid var(--border-active);
+    box-shadow:
+            0 0 15px rgba(77, 171, 247, 0.5),
+            inset 0 0 20px rgba(0, 174, 255, 0.5);
+}
+
+.modal-btn::after {
+    content: "确定选择";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-primary);
+    z-index: -1;
+    clip-path: var(--slice-0);
+}
+
+.modal-btn:hover::after {
+    animation: glitch 0.5s;
+    animation-timing-function: steps(2, end);
+}
+
+.modal-btn:hover {
+    text-shadow:
+            -1px -1px 0 rgba(0, 230, 246, 0.7),
+            1px 1px 0 var(--btn-hover);
+}
+
+@media (max-width: 480px) {
+    .emoji-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-buttons-emoji {
+        flex-direction: column;
+    }
+
+    .demo-btn {
+        width: 250px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 22px;
+    }
+
+    .modal-header-emoji h2 {
+        font-size: 24px;
+    }
+}
