@@ -1,4 +1,4 @@
-### Web网页前端课程设计——Sybernake 贪吃蛇
+### Web网页前端课程设计——Sybernake 肉鸽&贪吃蛇
 
 + 游戏引擎物理系统使用原生JS构建
 + 页面渲染由HTML5+CSS3实现
