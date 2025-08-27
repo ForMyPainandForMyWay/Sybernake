@@ -1,101 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 20px;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1000px;
-    width: 100%;
-    text-align: center;
-}
-
-header {
-    margin-bottom: 40px;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-    position: relative;
-    display: inline-block;
-}
-
-h1::after {
-    content: "故障艺术效果";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-shadow: -2px -2px 0 rgba(0, 230, 246, 0.7);
-    clip-path: var(--slice-0);
-}
-
-h1:hover::after {
-    animation: glitch 1.5s infinite;
-}
-
-.description {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 230, 246, 0.3);
-}
-
-.features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.feature-card {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    padding: 20px;
-    width: 230px;
-    border: 1px solid rgba(0, 230, 246, 0.3);
-    box-shadow: 0 0 10px rgba(0, 174, 255, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-}
-
-.feature-card i {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #00aeff;
-}
-
-.feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-/* 添加故障艺术切片变量 */
 :root {
     --slice-0: inset(50% 50% 50% 50%);
     --slice-1: inset(80% -6px 0 0);
@@ -103,365 +5,179 @@ h1:hover::after {
     --slice-3: inset(10% -6px 85% 0);
     --slice-4: inset(40% -6px 43% 0);
     --slice-5: inset(80% -6px 5% 0);
-
-    /* 添加新颜色变量 */
     --btn-primary: #00aeff;
     --btn-hover: #0066ff;
-    --selection-highlight: rgba(0, 174, 255, 0.25);
+    --selection-highlight: rgba(0,174,255,0.25);
     --border-active: #00f7ff;
-    --shadow: 0 0 20px rgba(0, 174, 255, 0.7);
+    --shadow: 0 0 20px rgba(0,174,255,0.7);
 }
 
-/* 更新按钮效果 - 使用emoji-select的样式 */
-.demo-btn {
-    position: relative;
-    width: 300px;
-    height: 70px;
-    line-height: 70px;
-    font-size: 28px;
-    background: var(--btn-primary);
-    color: #fff;
-    letter-spacing: 3px;
-    outline: transparent;
-    margin: 30px 0;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: #fff; padding: 20px; overflow-x: hidden;
+}
+
+.container { max-width: 1000px; width: 100%; text-align: center; }
+header { margin-bottom: 40px; }
+
+h1 {
+    font-size: 2.8rem; margin-bottom: 20px; letter-spacing: 3px;
+    position: relative; display: inline-block;
+}
+h1::after {
+    content: "故障艺术效果";
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    color: #fff; text-shadow: -2px -2px 0 rgba(0,230,246,0.7);
+    clip-path: var(--slice-0);
+}
+h1:hover::after { animation: glitch 1.5s infinite; }
+
+.description, .instructions {
+    font-size: 1.2rem; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;
+    border: 1px solid rgba(0,230,246,0.3); margin-bottom: 40px; line-height: 1.6;
+    max-width: 800px; margin-left: auto; margin-right: auto;
+}
+.instructions { margin-top: 40px; text-align: left; }
+.instructions h3 { margin-bottom: 15px; color: var(--border-active); text-align: center; }
+.instructions ul { padding-left: 20px; margin-bottom: 15px; }
+.instructions li { margin-bottom: 8px; line-height: 1.5; }
+.highlight { color: var(--border-active); font-weight: bold; }
+
+.features {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px;
+}
+.feature-card {
+    background: rgba(0,0,0,0.3); border-radius: 10px; padding: 20px; width: 230px;
+    border: 1px solid rgba(0,230,246,0.3);
+    box-shadow: 0 0 10px rgba(0,174,255,0.3);
+    transition: transform 0.3s;
+}
+.feature-card:hover { transform: translateY(-10px);}
+.feature-card i { font-size: 2.5rem; margin-bottom: 15px; color: var(--btn-primary);}
+.feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+.demo-btn, .modal-buttons button {
+    position: relative; font-weight: bold; text-transform: uppercase;
     border: 2px solid var(--border-active);
-    box-shadow:
-            0 0 15px rgba(77, 171, 247, 0.5),
-            inset 0 0 20px rgba(0, 174, 255, 0.5);
-    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(77,171,247,0.5), inset 0 0 20px rgba(0,174,255,0.5);
+    transition: all 0.3s ease; color: #fff; cursor: pointer; outline: none;
+    background: var(--btn-primary); overflow: hidden; z-index: 1;
 }
-
+.demo-btn {
+    width: 300px; height: 70px; line-height: 70px; font-size: 28px; letter-spacing: 3px;
+    margin: 30px 0;
+}
 .demo-btn:hover {
     background: var(--btn-hover);
-    box-shadow:
-            0 0 25px rgba(77, 171, 247, 0.8),
-            inset 0 0 25px rgba(0, 174, 255, 0.8);
+    box-shadow: 0 0 25px rgba(77,171,247,0.8), inset 0 0 25px rgba(0,174,255,0.8);
 }
-
 .demo-btn::after {
     content: "显示模态框";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; inset: 0;
     background: var(--btn-primary);
     box-shadow: 6px 0 0 var(--border-active);
-    text-shadow: -2px -2px 0px rgba(114, 164, 245, 0.7), 2px 2px 0px var(--border-active);
+    text-shadow: -2px -2px 0px rgba(114,164,245,0.7), 2px 2px 0px var(--border-active);
     clip-path: var(--slice-0);
+    display: block;
 }
+.demo-btn:hover::after { animation: glitch 0.8s steps(2, end); }
 
-.demo-btn:hover::after {
-    animation: glitch 0.8s;
-    animation-timing-function: steps(2, end);
-}
-
-/* 故障艺术动画关键帧 */
 @keyframes glitch {
-    0% {
-        clip-path: var(--slice-1);
-        transform: translate(-10px, -5px);
-    }
-
-    10% {
-        clip-path: var(--slice-3);
-        transform: translate(5px, 5px);
-    }
-
-    20% {
-        clip-path: var(--slice-1);
-        transform: translate(-5px, 5px);
-    }
-
-    30% {
-        clip-path: var(--slice-3);
-        transform: translate(0px, 2.5px);
-    }
-
-    40% {
-        clip-path: var(--slice-2);
-        transform: translate(-2.5px, 0px);
-    }
-
-    50% {
-        clip-path: var(--slice-3);
-        transform: translate(2.5px, 0px);
-    }
-
-    60% {
-        clip-path: var(--slice-4);
-        transform: translate(2.5px, 5px);
-    }
-
-    70% {
-        clip-path: var(--slice-2);
-        transform: translate(-5px, 5px);
-    }
-
-    80% {
-        clip-path: var(--slice-5);
-        transform: translate(10px, -5px);
-    }
-
-    90% {
-        clip-path: var(--slice-1);
-        transform: translate(-5px, 0px);
-    }
-
-    100% {
-        clip-path: var(--slice-1);
-        transform: translate(0);
-    }
+    0%   { clip-path: var(--slice-1); transform: translate(-10px,-5px);}
+    10%  { clip-path: var(--slice-3); transform: translate(5px,5px);}
+    20%  { clip-path: var(--slice-1); transform: translate(-5px,5px);}
+    30%  { clip-path: var(--slice-3); transform: translate(0,2.5px);}
+    40%  { clip-path: var(--slice-2); transform: translate(-2.5px,0);}
+    50%  { clip-path: var(--slice-3); transform: translate(2.5px,0);}
+    60%  { clip-path: var(--slice-4); transform: translate(2.5px,5px);}
+    70%  { clip-path: var(--slice-2); transform: translate(-5px,5px);}
+    80%  { clip-path: var(--slice-5); transform: translate(10px,-5px);}
+    90%  { clip-path: var(--slice-1); transform: translate(-5px,0);}
+    100% { clip-path: var(--slice-1); transform: translate(0);}
 }
 
-/* 模态框样式 */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-    /*display: none;*/
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000; backdrop-filter: blur(5px);
 }
 
-/* 更新模态框内容效果 - 使用emoji-select的边框和阴影 */
 .modal-content {
-    background: rgba(10, 10, 25, 0.5);
-    border-radius: 20px;
-    width: min(90%, 400px);
-    padding: 25px;
-    position: relative;
-    border: 1px solid rgba(0, 230, 246, 0.3);
-    box-shadow:
-            0 0 20px rgba(0, 174, 255, 0.7),
-            0 0 15px rgba(0, 230, 246, 0.3),
-            6px 6px 0 var(--border-active);
-    transform: scale(0.9);
-    opacity: 0;
+    background: rgba(10,10,25,0.5); border-radius: 20px;
+    width: min(90%,400px); padding: 25px; position: relative;
+    border: 1px solid rgba(0,230,246,0.3);
+    box-shadow: 0 0 20px rgba(0,174,255,0.7), 0 0 15px rgba(0,230,246,0.3), 6px 6px 0 var(--border-active);
+    transform: scale(0.9); opacity: 0;
     animation: modalAppear 0.5s forwards;
-    color: #ffffff;
-    text-align: center;
+    color: #fff; text-align: center;
 }
+@keyframes modalAppear { to { transform: scale(1); opacity: 1; } }
 
-@keyframes modalAppear {
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* 更新标题效果 - 使用emoji-select的故障艺术标题 */
 .modal-content h2 {
-    color: transparent; /* 隐藏原始文本 */
-    font-weight: 600;
-    margin: 0 0 25px 0;
-    font-size: 28px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block;
-    padding: 0 10px;
-    height: 1.2em;
-    text-align: center;
-    width: 100%;
+    color: transparent; font-weight: 600; margin: 0 0 25px 0; font-size: 28px;
+    letter-spacing: 2px; text-transform: uppercase; position: relative;
+    display: inline-block; padding: 0 10px; height: 1.2em; text-align: center; width: 100%;
 }
-
-/* 创建伪元素替代显示文本 */
-.modal-content h2::before {
-    content: "游戏结束"; /* 根据游戏内容修改标题 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-    visibility: visible;
-    z-index: 1;
-}
-
-/* 创建故障层 */
+.modal-content h2::before,
 .modal-content h2::after {
-    content: "游戏结束"; /* 根据游戏内容修改标题 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-    text-shadow: -2px -2px 0 rgba(0, 230, 246, 0.7);
-    clip-path: var(--slice-0);
-    z-index: 2;
+    content: "游戏结束";
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; color: #fff; text-align: center;
 }
-
-/* 悬停时应用故障动画 - 修复问题：仅当悬停在h2上时触发 */
-.modal-content h2:hover::after {
-    animation: glitch 1.5s infinite;
+.modal-content h2::before { z-index: 1; }
+.modal-content h2::after {
+    text-shadow: -2px -2px 0 rgba(0,230,246,0.7);
+    clip-path: var(--slice-0); z-index: 2;
 }
+.modal-content h2:hover::after { animation: glitch 1.5s infinite; }
 
-/* 保留原有的霓虹灯文字效果 */
 .modal-content p {
-    text-shadow:
-            0 0 3px rgba(0, 255, 255, 0.7),
-            0 0 6px rgba(0, 200, 255, 0.4),
-            0 0 9px rgba(0, 100, 255, 0.2);
-    /*animation: neon-pulse 2s infinite alternate;*/
-    position: relative;
-    margin-bottom: 25px;
-    font-size: 18px;
-    line-height: 1.6;
+    text-shadow: 0 0 3px rgba(0,255,255,0.7), 0 0 6px rgba(0,200,255,0.4), 0 0 9px rgba(0,100,255,0.2);
+    position: relative; margin-bottom: 25px; font-size: 18px; line-height: 1.6;
 }
 
 @keyframes neon-pulse {
-    0% {
-        text-shadow:
-                0 0 3px rgba(0, 255, 255, 0.7),
-                0 0 6px rgba(0, 200, 255, 0.4),
-                0 0 9px rgba(0, 100, 255, 0.2);
-    }
-    100% {
-        text-shadow:
-                0 0 4px rgba(0, 255, 255, 0.9),
-                0 0 8px rgba(0, 200, 255, 0.6),
-                0 0 12px rgba(0, 100, 255, 0.4);
-    }
+    0% { text-shadow: 0 0 3px rgba(0,255,255,0.7), 0 0 6px rgba(0,200,255,0.4), 0 0 9px rgba(0,100,255,0.2);}
+    100% { text-shadow: 0 0 4px rgba(0,255,255,0.9), 0 0 8px rgba(0,200,255,0.6), 0 0 12px rgba(0,100,255,0.4);}
 }
 
-/* 更新按钮样式 - 使用emoji-select的按钮效果 */
 .modal-buttons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    margin-top: 25px; display: flex; justify-content: center; gap: 15px;
 }
-
 .modal-buttons button {
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    background: transparent;
-    color: white;
-    transition: background 0.3s;
-    font-weight: bold;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    min-width: 120px;
-    text-transform: uppercase;
-    border: 2px solid var(--border-active);
-    box-shadow:
-            0 0 15px rgba(77, 171, 247, 0.5),
-            inset 0 0 20px rgba(0, 174, 255, 0.5);
+    padding: 12px 25px; border-radius: 5px; font-size: 16px; min-width: 120px;
+    background: transparent; color: #fff; letter-spacing: 1px;
 }
-
 .modal-buttons button::after {
     content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--btn-primary);
-    z-index: -1;
+    position: absolute; inset: 0;
+    background: var(--btn-primary); z-index: -1;
     clip-path: var(--slice-0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
 }
-
-.modal-buttons button:hover::after {
-    animation: glitch 0.5s;
-    animation-timing-function: steps(2, end);
-}
-
+.modal-buttons button:hover::after { animation: glitch 0.5s steps(2, end);}
 .modal-buttons button:hover {
-    text-shadow:
-            -1px -1px 0 rgba(0, 230, 246, 0.7),
-            1px 1px 0 var(--btn-hover);
+    text-shadow: -1px -1px 0 rgba(0,230,246,0.7), 1px 1px 0 var(--btn-hover);
 }
-
-/* 响应式设计 */
-@media (max-width: 480px) {
-    .demo-btn {
-        width: 250px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 22px;
-    }
-
-    .modal-content h2 {
-        font-size: 24px;
-    }
-
-    .modal-buttons {
-        flex-direction: column;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .feature-card {
-        width: 100%;
-    }
-}
-
-.instructions {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 40px;
-    border: 1px solid rgba(0, 230, 246, 0.3);
-    text-align: left;
-}
-
-.instructions h3 {
-    margin-bottom: 15px;
-    color: var(--border-active);
-    text-align: center;
-}
-
-.instructions ul {
-    padding-left: 20px;
-    margin-bottom: 15px;
-}
-
-.instructions li {
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
-.highlight {
-    color: var(--border-active);
-    font-weight: bold;
-}
-
 
 .name-input {
-    background: rgba(0, 40, 80, 0.6);
-    border: 2px solid #00fff6;
-    border-radius: 50px;
-    padding: 15px 25px;
-    font-size: 1.2rem;
-    color: white;
-    text-align: center;
-    width: 70%;
-    /*margin-bottom: 20px;*/
+    background: rgba(0,40,80,0.6); border: 2px solid #00fff6; border-radius: 50px;
+    padding: 15px 25px; font-size: 1.2rem; color: #fff; text-align: center; width: 70%;
 }
 .name-input:focus {
     outline: none;
-    box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+    box-shadow: 0 0 15px rgba(0,198,255,0.7);
+}
+
+@media (max-width: 480px) {
+    .demo-btn { width: 250px; height: 60px; line-height: 60px; font-size: 22px;}
+    .modal-content h2 { font-size: 24px;}
+    .modal-buttons { flex-direction: column;}
+    h1 { font-size: 2rem;}
+    .feature-card { width: 100%;}
 }
